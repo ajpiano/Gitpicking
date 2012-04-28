@@ -9,7 +9,13 @@ extension_pattern = /\.(md|txt|markdown|xml|rst|textile)$/;
 
 // Get all the wrapper diff wrapper elements for selected file extensions.
 wrappers = $(".data.highlight").filter(function() {
-  return $(this).prev().data("path").match(extension_pattern);
+  var meta_div,
+	filename;
+  meta_div = $(this).prev();
+  // Left-hand side of `||` works on diff pages.
+  // Right-hand side works on blame pages.
+  filename = (meta_div.data("path") || meta_div.find("#raw-url").attr("href"));
+  return (filename || "").match(extension_pattern);
 });
 
 // Add our special class to the matched elements.
@@ -35,7 +41,7 @@ codes.addClass("ghml-code");
 
 // Inject a stylesheet to control the appearance of spaces in code cells
 styleElem = $(["<style type=text/css>",
-  ".ghml-code pre{",
-  "white-space:pre-wrap;",
+  ".ghml-code.line-data, .ghml-code pre {",
+  "white-space: pre-wrap;",
   "}",
   "</style>"].join("")).appendTo(document.head);

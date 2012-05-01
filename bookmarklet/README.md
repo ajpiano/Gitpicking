@@ -7,3 +7,4 @@ Github works great when you're discussing changes and asking questions about cod
 #### After
 ![After]( http://cl.ly/3E1m1Y1o3W18320y0C2x/Screen%20Shot%202012-04-26%20at%2014.21.29.png )
 
+*Note: The bookmarklet currently restricts wrapping to files ending in `.md`, `.markdown`, `.txt`, `.textile`, `.xml`, or `.rst`. But it's easy enough to remove this restriction -- either yourself, or by convincing us to do it here.*
